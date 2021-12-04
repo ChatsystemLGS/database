@@ -4,7 +4,7 @@
 
 ### Unterscheidung 1:1-Konversation/Gruppenkonversation
 
-#### Jede KOnversation ist ein Channel
+#### Jede Konversation ist ein Channel
 * Sämtliche Konversationen finden in Channels statt
 * 1:1 Konversationen werden ähnlich wie Gruppenkonversationen behandelt
 
