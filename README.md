@@ -9,7 +9,7 @@
 * Sämtliche Konversationen finden in Channels statt
 * 1:1 Konversationen werden ähnlich wie Gruppenkonversationen behandelt
 
-#### alle Konversationstypen haben eine Tabellenübergreifend eizigartige id
+#### alle Konversationstypen haben eine Tabellenübergreifend eizigartige ID
 
 * Gruppen und 1:1-Konversationen haben tabellenübergreifend einzigartige Primärschlüssel (UUID/Sequence)
 * Eine Tabelle hält alle Nachrichten
