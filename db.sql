@@ -31,7 +31,7 @@ CREATE TABLE Channels (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE channelMembers (
+CREATE TABLE channelMembers ( -- user "user" is in channel "channel" and is admin of channel if "isAdmin"
     user BIGINT UNSIGNED NOT NULL,
     channel BIGINT UNSIGNED NOT NULL,
     isAdmin BOOLEAN NOT NULL DEFAULT FALSE,
