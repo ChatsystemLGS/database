@@ -14,20 +14,20 @@ CREATE TABLE Users (
 );
 
 -- stores relationship of userB to userA -> is userB a friend of userA?
-CREATE TABLE userRelationship (
+CREATE TABLE userRelationships (
     userA BIGINT UNSIGNED NOT NULL,
     userB BIGINT UNSIGNED NOT NULL,
     note VARCHAR(255) NOT NULL DEFAULT '',
     type ENUM('friend', 'blocked') NOT NULL DEFAULT 'friend',
-    CONSTRAINT FK_userRelationship_userA FOREIGN KEY (userA) REFERENCES Users(id) ON DELETE CASCADE,
-    CONSTRAINT FK_userRelationship_userB FOREIGN KEY (userB) REFERENCES Users(id) ON DELETE CASCADE,
+    CONSTRAINT FK_userRelationships_userA FOREIGN KEY (userA) REFERENCES Users(id) ON DELETE CASCADE,
+    CONSTRAINT FK_userRelationships_userB FOREIGN KEY (userB) REFERENCES Users(id) ON DELETE CASCADE,
     PRIMARY KEY (userA, userB)
 );
 
 CREATE TABLE Channels (
     id SERIAL NOT NULL,
     type ENUM('dm', 'publicGroup', 'privateGroup') NOT NULL,
-    name VARCHAR(255) NOT NULL,
+    name VARCHAR(255) DEFAULT NULL, -- DMs derive their channelname from the two participants -> can be NULL
     PRIMARY KEY (id)
 );
 
@@ -40,10 +40,10 @@ CREATE TABLE channelMembers (
     PRIMARY KEY (user, channel)
 );
 
-CREATE TABLE Message (
+CREATE TABLE Messages (
     id SERIAL NOT NULL,
     channel BIGINT UNSIGNED NOT NULL,
-    author BIGINT UNSIGNED NOT NULL,
+    author BIGINT UNSIGNED, -- can be null if author gets deleted
     timestamp TIMESTAMP NOT NULL,
     data VARBINARY(255),
     dataType ENUM(
@@ -53,7 +53,7 @@ CREATE TABLE Message (
         'file:gif',
         'file:pdf'
     ) NOT NULL,
-    CONSTRAINT FK_Message_channel FOREIGN KEY (channel) REFERENCES Channels(id) ON DELETE CASCADE,
-    CONSTRAINT FK_Message_author FOREIGN KEY (author) REFERENCES Users(id),
+    CONSTRAINT FK_Messages_channel FOREIGN KEY (channel) REFERENCES Channels(id) ON DELETE CASCADE,
+    CONSTRAINT FK_Messages_author FOREIGN KEY (author) REFERENCES Users(id) ON DELETE SET NULL,
     PRIMARY KEY (id)
 );
