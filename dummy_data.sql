@@ -3,8 +3,10 @@ USE Chat;
 DELETE FROM Users;
 DELETE FROM Channels;
 DELETE FROM Messages;
-DELETE FROM Users;
-DELETE FROM Users;
+
+ALTER TABLE Users AUTO_INCREMENT = 1;
+ALTER TABLE Channels AUTO_INCREMENT = 1;
+ALTER TABLE Messages AUTO_INCREMENT = 1;
 
 INSERT INTO Users (
     emailAddress,
@@ -28,6 +30,68 @@ INSERT INTO Users (
     'che9w8zf93h98gze890gz398zg83z8rzg'
 );
 
+INSERT INTO userRelationships (
+    userA,
+    userB,
+    note,
+    type
+) VALUES (
+    1,
+    2,
+    '',
+    'friend'
+), (
+    1,
+    3,
+    '',
+    'friend'
+), (
+    1,
+    4,
+    '<3',
+    'blocked'
+), (
+    2,
+    1,
+    '',
+    'friend'
+), (
+    2,
+    3,
+    '',
+    'friend'
+), (
+    3,
+    1,
+    '',
+    'friend'
+), (
+    3,
+    2,
+    '',
+    'friend'
+), (
+    3,
+    4,
+    '',
+    'friend'
+), (
+    4,
+    1,
+    'der dude, den ich fragen muss, wenn ich nicht mit meinem macbook klar komme',
+    'friend'
+), (
+    4,
+    2,
+    '',
+    'friend'
+), (
+    4,
+    3,
+    '',
+    'friend'
+);
+
 INSERT INTO Channels (
     type,
     name
@@ -43,6 +107,48 @@ INSERT INTO Channels (
 ), (        -- dominik-jaro-felix; id=4
     'privateGroup',
     'Mircos Dekopauschale ist Wucher'
+);
+
+INSERT INTO channelMembers (
+    user,
+    channel,
+    isAdmin
+) VALUES (
+    1,
+    1,
+    FALSE
+), (
+    4,
+    1,
+    FALSE
+), (
+    4,
+    2,
+    FALSE
+), (
+    3,
+    2,
+    FALSE
+), (
+    3,
+    3,
+    FALSE
+), (
+    2,
+    3,
+    FALSE
+), (
+    1,
+    4,
+    TRUE
+), (
+    2,
+    4,
+    FALSE
+), (
+    3,
+    4,
+    TRUE
 );
 
 INSERT INTO Messages (
@@ -68,6 +174,12 @@ INSERT INTO Messages (
     1,
     NOW(),
     'Hurensohn',
+    'text'
+), (
+    1,
+    1,
+    NOW(),
+    'ich block dich',
     'text'
 ), (
     2,
