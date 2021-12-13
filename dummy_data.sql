@@ -109,7 +109,7 @@ INSERT INTO Channels (
     'Mircos Dekopauschale ist Wucher'
 );
 
-INSERT INTO channelMembers (
+INSERT INTO channelMembers ( -- user "user" is in channel "channel" and is admin of channel if "isAdmin"
     user,
     channel,
     isAdmin
