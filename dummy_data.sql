@@ -107,6 +107,12 @@ INSERT INTO Channels (
 ), (        -- dominik-jaro-felix; id=4
     'privateGroup',
     'Mircos Dekopauschale ist Wucher'
+), (        -- felix; id=5
+    'publicGroup',
+    'BG13'
+), (        -- felix; id=6
+    'publicGroup',
+    'IT BG13'
 );
 
 INSERT INTO channelMembers ( -- user "user" is in channel "channel" and is admin of channel if "isAdmin"
@@ -148,6 +154,14 @@ INSERT INTO channelMembers ( -- user "user" is in channel "channel" and is admin
 ), (
     3,
     4,
+    TRUE
+), (
+    1,
+    5,
+    TRUE
+), (
+    1,
+    6,
     TRUE
 );
 
