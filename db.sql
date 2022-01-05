@@ -9,7 +9,7 @@ CREATE TABLE Users (
     emailAddress VARCHAR(255) UNIQUE NOT NULL,
     nickname VARCHAR(255) NOT NULL,
     passwordHash VARCHAR(255) NOT NULL,
-    role ENUM('admin', 'debug'),
+    role ENUM('ADMIN', 'DEBUG'),
     PRIMARY KEY (id)
 );
 
@@ -18,7 +18,7 @@ CREATE TABLE userRelationships (
     userA BIGINT UNSIGNED NOT NULL,
     userB BIGINT UNSIGNED NOT NULL,
     note VARCHAR(255) NOT NULL DEFAULT '',
-    type ENUM('friend', 'blocked') NOT NULL DEFAULT 'friend',
+    type ENUM('FRIEND', 'BLOCKED') NOT NULL DEFAULT 'FRIEND',
     CONSTRAINT FK_userRelationships_userA FOREIGN KEY (userA) REFERENCES Users(id) ON DELETE CASCADE,
     CONSTRAINT FK_userRelationships_userB FOREIGN KEY (userB) REFERENCES Users(id) ON DELETE CASCADE,
     PRIMARY KEY (userA, userB)
@@ -26,7 +26,7 @@ CREATE TABLE userRelationships (
 
 CREATE TABLE Channels (
     id SERIAL NOT NULL,
-    type ENUM('dm', 'publicGroup', 'privateGroup') NOT NULL,
+    type ENUM('DM', 'PUBLIC_GROUP', 'PRIVATE_GROUP') NOT NULL,
     name VARCHAR(255) DEFAULT NULL, -- DMs derive their channelname from the two participants -> can be NULL
     PRIMARY KEY (id)
 );
@@ -47,11 +47,11 @@ CREATE TABLE Messages (
     timestamp TIMESTAMP NOT NULL,
     data VARBINARY(255),
     dataType ENUM(
-        'text',
-        'file:txt',
-        'file:png',
-        'file:gif',
-        'file:pdf'
+        'TEXT',
+        'FILE_TXT',
+        'FILE_PNG',
+        'FILE_GIF',
+        'FILE_PDF'
     ) NOT NULL,
     CONSTRAINT FK_Messages_channel FOREIGN KEY (channel) REFERENCES Channels(id) ON DELETE CASCADE,
     CONSTRAINT FK_Messages_author FOREIGN KEY (author) REFERENCES Users(id) ON DELETE SET NULL,
