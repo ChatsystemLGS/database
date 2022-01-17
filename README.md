@@ -1,5 +1,7 @@
 # Database for our Chatservice
 
+![ER-Diagramm](./diagrams/database-final.svg)
+
 ## Designentscheidungen
 
 ### Unterscheidung 1:1-Konversation/Gruppenkonversation
