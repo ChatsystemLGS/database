@@ -187,7 +187,7 @@ INSERT INTO Messages (
     1,
     1,
     NOW(),
-    'Hurensohn',
+    'Du lieber :)',
     'TEXT'
 ), (
     1,
@@ -211,7 +211,7 @@ INSERT INTO Messages (
     3,
     3,
     NOW(),
-    'Mirco ist schon dumm, oder?',
+    'Mirco ist schon cool, oder?',
     'TEXT'
 ), (
     3,
@@ -241,6 +241,6 @@ INSERT INTO Messages (
     4,
     1,
     NOW(),
-    'Ist das eigentlich Mobbing? Ne, oder? Außerdem schreiben wir ja gerade in einem privaten channel. Mirko bekommt also nichts mit, wenn wir hier über ihn lästern:)',
+    'Dieser private Channel ist toll',
     'TEXT'
 );
