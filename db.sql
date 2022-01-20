@@ -46,7 +46,7 @@ CREATE TABLE Messages (
     channel BIGINT UNSIGNED NOT NULL,
     author BIGINT UNSIGNED, -- can be null if author gets deleted
     timestamp TIMESTAMP NOT NULL,
-    data VARBINARY(255),
+    data LONGBLOB NOT NULL, -- also not great but idc
     dataType ENUM(
         'TEXT',
         'FILE_TXT',
