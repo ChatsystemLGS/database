@@ -29,6 +29,7 @@ CREATE TABLE Channels (
     id SERIAL NOT NULL,
     type ENUM('DM', 'PUBLIC_GROUP', 'PRIVATE_GROUP') NOT NULL,
     name VARCHAR(255) DEFAULT NULL, -- DMs derive their channelname from the two participants -> can be NULL
+    channelPicture LONGBLOB DEFAULT NULL, -- not happy about that either...
     PRIMARY KEY (id)
 );
 
