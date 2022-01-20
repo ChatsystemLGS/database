@@ -8,6 +8,7 @@ CREATE TABLE Users (
     id SERIAL NOT NULL,
     emailAddress VARCHAR(255) UNIQUE NOT NULL,
     nickname VARCHAR(255) NOT NULL,
+    profilePicture LONGBLOB, -- stores png images... i know, bad practice and very slow but easy
     passwordHash VARCHAR(255) NOT NULL,
     role ENUM('ADMIN', 'DEBUG'),
     PRIMARY KEY (id)
